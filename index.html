@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>US FROG — $USFROG</title>
+
+<meta name="description"
+content="US FROG ($USFROG) — a community-driven meme token on Solana.">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#06110b;
+  color:#fff;
+  line-height:1.6;
+}
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:#06110bee;
+  border-bottom:1px solid #1c3928;
+  backdrop-filter:blur(10px);
+}
+
+.nav{
+  max-width:1100px;
+  margin:auto;
+  padding:17px 22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:900;
+}
+
+.logo span{
+  font-size:28px;
+  margin-right:7px;
+}
+
+.nav-links{
+  display:flex;
+  gap:25px;
+}
+
+.nav-links a{
+  color:#a9bbae;
+  text-decoration:none;
+  font-size:14px;
+}
+
+.nav-links a:hover{
+  color:#70e000;
+}
+
+.hero{
+  max-width:1100px;
+  margin:auto;
+  padding:100px 22px 80px;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:50px;
+  align-items:center;
+}
+
+.badge{
+  display:inline-block;
+  padding:7px 14px;
+  border:1px solid #31543d;
+  border-radius:50px;
+  background:#0d2115;
+  color:#9cff45;
+  font-size:13px;
+}
+
+h1{
+  font-size:clamp(55px,9vw,95px);
+  line-height:.95;
+  margin:22px 0;
+  letter-spacing:-4px;
+}
+
+.green{
+  color:#70e000;
+}
+
+.hero-text{
+  max-width:650px;
+  color:#a9bbae;
+  font-size:19px;
+}
+
+.buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:30px;
+}
+
+.btn{
+  display:inline-block;
+  padding:13px 20px;
+  border-radius:12px;
+  background:#70e000;
+  color:#06110b;
+  font-weight:800;
+  text-decoration:none;
+  border:1px solid #70e000;
+}
+
+.btn:hover{
+  opacity:.85;
+}
+
+.btn-outline{
+  background:transparent;
+  color:#fff;
+  border-color:#31543d;
+}
+
+.frog-card{
+  min-height:350px;
+  border:1px solid #1d3b29;
+  border-radius:28px;
+  background:linear-gradient(145deg,#11281a,#09150e);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 20px 80px #0008;
+}
+
+.big-frog{
+  font-size:160px;
+  filter:drop-shadow(0 20px 30px #70e00044);
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:35px;
+}
+
+.stat{
+  background:#0b1b12;
+  border:1px solid #1c3928;
+  border-radius:15px;
+  padding:18px;
+}
+
+.stat strong{
+  display:block;
+  font-size:21px;
+}
+
+.stat small{
+  color:#91a898;
+}
+
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:80px 22px;
+}
+
+h2{
+  font-size:40px;
+  margin-bottom:8px;
+}
+
+.subtitle{
+  color:#9eb1a3;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:30px;
+}
+
+.card{
+  background:#0c1c13;
+  border:1px solid #1c3928;
+  border-radius:20px;
+  padding:25px;
+}
+
+.card h3{
+  margin-bottom:8px;
+}
+
+.card p{
+  color:#9eb1a3;
+}
+
+.token-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+  margin-top:30px;
+}
+
+.token-card{
+  background:#0c1c13;
+  border:1px solid #1c3928;
+  border-radius:20px;
+  padding:25px;
+}
+
+.percent{
+  font-size:34px;
+  font-weight:900;
+  color:#70e000;
+}
+
+.bar{
+  height:10px;
+  background:#193322;
+  border-radius:20px;
+  margin-top:15px;
+  overflow:hidden;
+}
+
+.fill{
+  height:100%;
+  background:#70e000;
+}
+
+.roadmap{
+  margin-top:30px;
+  display:grid;
+  gap:15px;
+}
+
+.phase{
+  display:grid;
+  grid-template-columns:120px 1fr;
+  gap:20px;
+  background:#0c1c13;
+  border:1px solid #1c3928;
+  border-radius:18px;
+  padding:22px;
+}
+
+.phase strong{
+  color:#9cff45;
+}
+
+.contract-box{
+  margin-top:30px;
+  background:#0c1c13;
+  border:1px solid #1c3928;
+  border-radius:20px;
+  padding:25px;
+}
+
+.contract{
+  display:flex;
+  gap:10px;
+  margin-top:15px;
+}
+
+.contract input{
+  flex:1;
+  min-width:0;
+  background:#06110b;
+  border:1px solid #294b35;
+  color:#9eb1a3;
+  padding:13px;
+  border-radius:11px;
+}
+
+.copy{
+  cursor:pointer;
+}
+
+.warning{
+  margin-top:15px;
+  color:#9eb1a3;
+  font-size:13px;
+}
+
+footer{
+  border-top:1px solid #1c3928;
+  text-align:center;
+  padding:35px 20px;
+  color:#91a898;
+  font-size:13px;
+}
+
+@media(max-width:800px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .hero{
+    grid-template-columns:1fr;
+    padding-top:60px;
+  }
+
+  .big-frog{
+    font-size:110px;
+  }
+
+  .stats,
+  .cards,
+  .token-grid{
+    grid-template-columns:1fr;
+  }
+
+  .phase{
+    grid-template-columns:1fr;
+    gap:5px;
+  }
+
+  h1{
+    font-size:65px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+<div class="nav">
+
+<a href="#home" class="logo">
+<span>🐸</span>US FROG
+</a>
+
+<div class="nav-links">
+<a href="#about">About</a>
+<a href="#tokenomics">Tokenomics</a>
+<a href="#roadmap">Roadmap</a>
+<a href="#buy">Buy</a>
+<a href="#community">Community</a>
+</div>
+
+</div>
+</nav>
+
+
+<!-- HERO -->
+
+<main id="home">
+
+<div class="hero">
+
+<div>
+
+<span class="badge">
+SOLANA • COMMUNITY MEME TOKEN
+</span>
+
+<h1>
+US <span class="green">FROG</span>
+</h1>
+
+<p class="hero-text">
+A community-driven meme project built for memes,
+internet culture and frog-powered fun.
+</p>
+
+<div class="buttons">
+
+<a href="#buy" class="btn">
+Buy $USFROG
+</a>
+
+<a href="#tokenomics" class="btn btn-outline">
+Tokenomics
+</a>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<strong>$USFROG</strong>
+<small>Ticker</small>
+</div>
+
+<div class="stat">
+<strong>1 BILLION</strong>
+<small>Total Supply</small>
+</div>
+
+<div class="stat">
+<strong>0%</strong>
+<small>Transfer Tax</small>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="frog-card">
+<div class="big-frog">🐸</div>
+</div>
+
+</div>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<h2>About US FROG</h2>
+
+<p class="subtitle">
+Simple. Transparent. Community-driven.
+</p>
+
+<div class="cards">
+
+<div class="card">
+<h3>🐸 Community</h3>
+<p>
+Memes, community events and participation
+are at the heart of US FROG.
+</p>
+</div>
+
+<div class="card">
+<h3>🔎 Transparency</h3>
+<p>
+Token supply, allocation and official
+contract information will be publicly disclosed.
+</p>
+</div>
+
+<div class="card">
+<h3>🛡️ Simplicity</h3>
+<p>
+US FROG is designed as a simple meme token
+with no planned transfer tax.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- TOKENOMICS -->
+
+<section id="tokenomics">
+
+<h2>Tokenomics</h2>
+
+<p class="subtitle">
+Planned initial allocation.
+</p>
+
+<div class="token-grid">
+
+<div class="token-card">
+
+<div class="percent">80%</div>
+
+<strong>Community / Public</strong>
+
+<div class="bar">
+<div class="fill" style="width:80%"></div>
+</div>
+
+</div>
+
+
+<div class="token-card">
+
+<div class="percent">10%</div>
+
+<strong>Liquidity</strong>
+
+<div class="bar">
+<div class="fill" style="width:10%"></div>
+</div>
+
+</div>
+
+
+<div class="token-card">
+
+<div class="percent">5%</div>
+
+<strong>Marketing</strong>
+
+<div class="bar">
+<div class="fill" style="width:5%"></div>
+</div>
+
+</div>
+
+
+<div class="token-card">
+
+<div class="percent">5%</div>
+
+<strong>Development / Team</strong>
+
+<div class="bar">
+<div class="fill" style="width:5%"></div>
+
+</div>
+
+</div>
+
+</div>
+
+<p class="warning">
+Total Supply: 1,000,000,000 $USFROG •
+Chain: Solana • Transfer Tax: 0%.
+Final allocation should be confirmed in the official launch announcement.
+</p>
+
+</section>
+
+
+<!-- ROADMAP -->
+
+<section id="roadmap">
+
+<h2>Roadmap</h2>
+
+<p class="subtitle">
+The journey starts with the community.
+</p>
+
+<div class="roadmap">
+
+<div class="phase">
+<strong>PHASE 1</strong>
+
+<div>
+<b>BUILD</b>
+<p class="subtitle">
+Branding, website, token setup and community channels.
+</p>
+</div>
+
+</div>
+
+
+<div class="phase">
+<strong>PHASE 2</strong>
+
+<div>
+<b>LAUNCH</b>
+<p class="subtitle">
+Token deployment, liquidity setup and public contract information.
+</p>
+</div>
+
+</div>
+
+
+<div class="phase">
+<strong>PHASE 3</strong>
+
+<div>
+<b>COMMUNITY</b>
+<p class="subtitle">
+Memes, events and organic community growth.
+</p>
+</div>
+
+</div>
+
+
+<div class="phase">
+<strong>PHASE 4</strong>
+
+<div>
+<b>EXPAND</b>
+<p class="subtitle">
+Community ideas, integrations and future ecosystem development.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- BUY -->
+
+<section id="buy">
+
+<h2>Buy $USFROG</h2>
+
+<p class="subtitle">
+Official contract information will appear here after token deployment.
+</p>
+
+<div class="contract-box">
+
+<strong>Official Contract Address</strong>
+
+<div class="contract">
+
+<input
+id="contract"
+value="YOUR_CONTRACT_ADDRESS"
+readonly
+>
+
+<button
+class="btn copy"
+onclick="copyContract()">
+Copy
+</button>
+
+</div>
+
+<p class="warning">
+⚠️ Always verify the contract address through
+official US FROG channels before connecting a wallet
+or swapping tokens.
+</p>
+
+</div>
+
+<div class="buttons">
+
+<a class="btn" href="#">
+BUY $USFROG
+</a>
+
+</div>
+
+</section>
+
+
+<!-- COMMUNITY -->
+
+<section id="community">
+
+<h2>Join The Community</h2>
+
+<p class="subtitle">
+Follow the official US FROG channels.
+</p>
+
+<div class="buttons">
+
+<!-- Replace these links -->
+
+<a
+class="btn btn-outline"
+href="https://x.com/"
+target="_blank">
+𝕏 X / Twitter
+</a>
+
+<a
+class="btn btn-outline"
+href="https://t.me/"
+target="_blank">
+✈ Telegram
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+🐸 <strong>US FROG</strong> • $USFROG
+</p>
+
+<p>
+Meme token for entertainment and community participation.
+Crypto assets are highly volatile and risky.
+Nothing on this website guarantees profits or investment returns.
+</p>
+
+</footer>
+
+
+<script>
+
+function copyContract(){
+
+const input =
+document.getElementById("contract");
+
+navigator.clipboard.writeText(
+input.value
+).then(function(){
+
+alert("Contract address copied!");
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
